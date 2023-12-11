@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f9eeff url(./assets/background-pattern-mobile.svg);
+  background-repeat: no-repeat;
+}
+
+hr {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  line-height: 1.2;
+  position: relative;
+}
+
+h1::before {
+  content: url(./assets/icon-star.svg);
+  margin-right: 0.25em;
+}
+
+.accordion-label {
+  position: relative;
+  padding-right: 3em;
+}
+
+.accordion-label::after {
+  content: url(./assets/icon-plus.svg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+main {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+
+.container {
+  max-width: 80%;
+  margin-inline: auto;
+  background-color: white;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.accordion-content {
+  margin-top: 1em;
+  padding-right: 3em;
+  height: 0;
+  line-height: 1.5;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.accordion.active .accordion-content {
+  height: fit-content;
+}
+
+.accordion.active .accordion-label::after {
+  content: url(./assets/icon-minus.svg);
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    height: 10vh;
+    background: #f9eeff url(./assets/background-pattern-desktop.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  .container {
+    max-width: 50%;
+  }
+}
