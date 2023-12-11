@@ -7,9 +7,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   background: #f9eeff url(./assets/background-pattern-mobile.svg);
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center top;
+  height: 5vh;
 }
 
 hr {
@@ -17,14 +20,18 @@ hr {
 }
 
 h1 {
-  text-align: center;
-  line-height: 1.2;
+  line-height: 1.4;
+  font-size: 3rem;
   position: relative;
 }
 
 h1::before {
   content: url(./assets/icon-star.svg);
   margin-right: 0.25em;
+}
+
+h2 {
+  font-size: 1.15rem;
 }
 
 .accordion-label {
@@ -44,6 +51,7 @@ main {
   display: grid;
   height: 100vh;
   place-items: center;
+  padding: 1em;
 }
 
 .container {
@@ -55,12 +63,13 @@ main {
 }
 
 .accordion-content {
-  margin-top: 1em;
-  padding-right: 3em;
+  color: #8c6991;
+  font-weight: 400;
+  margin-block: 1.5em;
   height: 0;
   line-height: 1.5;
   overflow: hidden;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .accordion.active .accordion-content {
@@ -71,7 +80,7 @@ main {
   content: url(./assets/icon-minus.svg);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 50rem) {
   body {
     height: 10vh;
     background: #f9eeff url(./assets/background-pattern-desktop.svg);
@@ -80,7 +89,20 @@ main {
     background-position: center top;
   }
 
+  h2 {
+    font-size: 1.5rem;
+  }
+
   .container {
     max-width: 50%;
+    box-shadow: 3px 3px 6px hsla(292, 42%, 14%, 25%);
+  }
+
+  .accordion-content {
+    padding-right: 4em;
+  }
+
+  .accordion.active .accordion-content {
+    height: 3.125rem;
   }
 }
